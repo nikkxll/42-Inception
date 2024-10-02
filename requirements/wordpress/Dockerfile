@@ -21,4 +21,4 @@ RUN curl -o /usr/local/bin/wp https://raw.githubusercontent.com/wp-cli/builds/gh
 ### Wordpress Installation
 WORKDIR /var/www/html
 
-CMD ["/usr/local/bin/wp_entry.sh"]
+ENTRYPOINT ["/usr/local/bin/wp_entry.sh"]
