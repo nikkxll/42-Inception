@@ -1,6 +1,5 @@
 #!/bin/sh
 
-MAX_PINGS=10
 ping_count=0
 
 while ! mysqladmin ping -h "mariadb" --silent; do
@@ -19,23 +18,21 @@ if [ ! -f /var/www/html/wp-config.php ]; then
     wp core download --allow-root --path=/var/www/html
 
     echo "Creating wp-config.php"
-    wp config create --dbname=wordpress --dbuser=wpuser \
-        --dbpass=password --dbhost=mariadb --allow-root --skip-check --path=/var/www/html
+    wp config create --dbname=$DB_NAME --dbuser=$DB_USER \
+        --dbpass=$DB_PASS --dbhost=$DB_HOST --allow-root --skip-check --path=/var/www/html
 
     echo "Installing WordPress"
-    wp core install --url=https://dnikifor.42.fr --title=inception --admin_user=dnikifor \
-        --admin_password=123 --admin_email=admin@admin.com \
+    wp core install --url=$WP_URL --title=$WP_TITLE --admin_user=$WP_ADMIN_USER \
+        --admin_password=$WP_ADMIN_PASS --admin_email=$WP_ADMIN_EMAIL \
         --allow-root
 
     echo "Creating a new WordPress user"
-    wp user create dnikifor dnikifor@test.com --role=author --user_pass=password --allow-root
-
-    wp config set FORCE_SSL_ADMIN 'false' --allow-root
+    wp user create $WP_AUTHOR_USER $WP_AUTHOR_EMAIL --role=author --user_pass=$WP_AUTHOR_PASS --allow-root
 
     chmod 777 /var/www/html/wp-content
 
-    wp theme install twentytwentyfour --path=/var/www/html --allow-root
-    wp theme activate twentytwentyfour --path=/var/www/html --allow-root
+    wp theme install $WP_THEME --path=/var/www/html --allow-root
+    wp theme activate $WP_THEME --path=/var/www/html --allow-root
 fi
 
 php-fpm81 -F

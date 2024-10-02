@@ -1,2 +1,4 @@
 wp_pages
 database
+
+.env
