@@ -5,8 +5,8 @@ all: up
 
 create:
 	@echo "Creating data directories"
-	mkdir -p /home/${USER}/data/wp_pages
-	mkdir -p /home/${USER}/data/database
+	@mkdir -p /home/${USER}/data/wp_pages
+	@mkdir -p /home/${USER}/data/database
 
 up: build
 	@echo "Starting all containers"
@@ -29,7 +29,7 @@ clean:
 fclean: clean
 	@echo "Removing all containers and volumes"
 	@docker system prune -f --volumes
-	@rm -rf /home/${USER}/data/wp_pages
-	@rm -rf /home/${USER}/data/database
+	@sudo rm -rf /home/${USER}/data/wp_pages
+	@sudo rm -rf /home/${USER}/data/database
 
 .PHONY: all create up down re clean fclean
