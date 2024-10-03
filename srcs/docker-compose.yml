@@ -2,6 +2,7 @@ services:
   nginx:
     build: requirements/nginx/.
     container_name: nginx
+    image: nginx:hive
     depends_on:
       - wordpress
     ports:
@@ -16,6 +17,7 @@ services:
   wordpress:
     build: requirements/wordpress/.
     container_name: wordpress
+    image: wordpress:hive
     volumes:
       - wp_pages:/var/www/html
     networks:
@@ -27,6 +29,7 @@ services:
   mariadb:
     build: requirements/mariadb/.
     container_name: mariadb
+    image: mariadb:hive
     volumes:
       - database:/var/lib/mysql
     networks:
@@ -51,4 +54,5 @@ volumes:
 
 networks:
   inception:
+    name: inception
     driver: bridge
