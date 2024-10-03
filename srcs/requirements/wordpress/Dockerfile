@@ -11,8 +11,8 @@ RUN ln -s /usr/bin/php81 /usr/bin/php
 ### PHP-FPM Configuration
 RUN mkdir -p /var/www/html
 
-COPY www.conf /etc/php81/php-fpm.d/.
-COPY ./wp_entry.sh /usr/local/bin/.
+COPY ./config/www.conf /etc/php81/php-fpm.d/.
+COPY ./tools/wp_entry.sh /usr/local/bin/.
 
 RUN chmod +x /usr/local/bin/wp_entry.sh
 RUN curl -o /usr/local/bin/wp https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && \

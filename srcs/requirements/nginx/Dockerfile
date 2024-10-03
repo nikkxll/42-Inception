@@ -10,6 +10,6 @@ RUN openssl req -x509 -nodes -days 365 \
     -out /etc/nginx/ssl/dnikifor.42.fr.crt \
     -subj "/CN=dnikifor.42.fr"
 
-COPY default.conf /etc/nginx/http.d/.
+COPY ./config/default.conf /etc/nginx/http.d/.
 
 CMD ["nginx", "-g", "daemon off;"]
