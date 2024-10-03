@@ -9,7 +9,7 @@ services:
     ports:
       - "443:443"
     volumes:
-      - ./wp_pages:/var/www/html
+      - wp_pages:/var/www/html
     networks:
       - inception
     restart: always
@@ -19,7 +19,7 @@ services:
     build: requirements/wordpress/.
     container_name: wordpress
     volumes:
-      - ./wp_pages:/var/www/html
+      - wp_pages:/var/www/html
     networks:
       - inception
     restart: unless-stopped
@@ -30,7 +30,7 @@ services:
     build: requirements/mariadb/.
     container_name: mariadb
     volumes:
-      - ./database:/var/lib/mysql
+      - database:/var/lib/mysql
     networks:
       - inception
     restart: unless-stopped
@@ -39,7 +39,17 @@ services:
 
 volumes:
   database:
-  wp_pages: 
+    driver: local
+    driver_opts:
+      type: none
+      device: /home/${USER}/data/database
+      o: bind
+  wp_pages:
+    driver: local
+    driver_opts:
+      type: none
+      device: /home/${USER}/data/wp_pages
+      o: bind
 
 networks:
   inception:
