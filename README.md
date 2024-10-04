@@ -32,8 +32,11 @@ USER=xxxxxx                           # Login of the user (specifically for doma
 ## Run
 
 To build the network with containers, set them up and run use command ```make```
+
 To stop the container use ```make down```
+
 To start them again without building run ```make up```
+
 To remove all containers, volumes and created folders use ```make fclean```
 
 ##
