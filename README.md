@@ -1,5 +1,9 @@
 # Inception
 
+## Preview
+
+This project involves setting up a small infrastructure composed of different services (NGINX, WordPress, MySQL) under specific rules using Docker and Docker Compose.
+
 ## Environment
 
 To set up and start container you have to set the environment first. To do this you need to create ```.env``` file in the ```srcs``` folder and add there following variables:
