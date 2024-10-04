@@ -5,22 +5,32 @@
 To set up and start container you have to set the environment first. To do this you need to create ```.env``` file in the ```srcs``` folder and add there following variables:
 
 ```
-DB_NAME=mysql_database_name           # Name_of_the_MySQL_database_to_be_used.
-DB_HOST=mysql_database_host           # Host_address_of_the_MySQL_database_server.
-MYSQL_ROOT_PASSWORD=mysql_root_pass   # Root_password_for_accessing_the_MySQL_database.
-DB_USER=database_user_                # Username_for_connecting_to_the_MySQL_database.
-DB_PASS=xxxxxx                        # Password_for_the_specified_database_user.
+DB_NAME=xxxxxx                        # Name of the MySQL database to be used
+DB_HOST=xxxxxx                        # Host address of the MySQL database server
+MYSQL_ROOT_PASSWORD=xxxxxx            # Root password for accessing the MySQL database
+DB_USER=xxxxxx                        # Username for connecting to the MySQL database
+DB_PASS=xxxxxx                        # Password for the specified database user
 
-WP_URL=xxxxxx                         # URL_of_the_WordPress_site.
-WP_TITLE=xxxxxx                       # Title_of_the_WordPress_site.
-WP_ADMIN_USER=xxxxxx                  # Username_for_the_WordPress_admin_account.
-WP_ADMIN_PASS=xxxxxx                  # Password_for_the_WordPress_admin_account.
-WP_ADMIN_EMAIL=xxxxxx                 # Email_address_associated_with_the_WordPress_admin_account.
-WP_AUTHOR_USER=xxxxxx                 # Username_for_the_author_account_in_WordPress.
-WP_AUTHOR_EMAIL=xxxxxx                # Email_address_associated_with_the_author_account.
-WP_AUTHOR_PASS=xxxxxx                 # Password_for_the_author_account_in_WordPress.
+WP_URL=xxxxxx                         # URL of the WordPress site
+WP_TITLE=xxxxxx                       # Title of the WordPress site
+WP_ADMIN_USER=xxxxxx                  # Username for the WordPress admin account
+WP_ADMIN_PASS=xxxxxx                  # Password for the WordPress admin account
+WP_ADMIN_EMAIL=xxxxxx                 # Email address associated with the WordPress admin account
+WP_AUTHOR_USER=xxxxxx                 # Username for the author account in WordPress
+WP_AUTHOR_EMAIL=xxxxxx                # Email address associated with the author account
+WP_AUTHOR_PASS=xxxxxx                 # Password for the author account in WordPress
 
-MAX_PINGS=10                          # Maximum_number_of_pings_to_be_sent.
-WP_THEME=xxxxxx                       # WordPress_theme_to_be_used_for_the_site.
-USER=xxxxxx                           # Username_of_the_user_involved_in_the_project_or_configuration.
+MAX_PINGS=10                          # Maximum number of mySQL pings to be sent before Wordpress setup start
+WP_THEME=xxxxxx                       # WordPress theme to be used for the site
+USER=xxxxxx                           # Login of the user (specifically for domain and volumes setup)
 ```
+
+## Run
+
+To build the network with containers, set them up and run use command ```make```
+To stop the container use ```make down```
+To start them again without building run ```make up```
+To remove all containers, volumes and created folders use ```make fclean```
+
+##
+Made by dnikifor: dnikifor@student.hive.fi | LinkedIn: [dnikifor](https://www.linkedin.com/in/dmitriinikiforov/) | Tableau: [dmitriinikiforov](https://public.tableau.com/app/profile/nikiforov.dmitrii/vizzes)
