@@ -1,4 +1,4 @@
-DOCKER_COMPOSE	:= docker compose
+DOCKER_COMPOSE	:= docker-compose
 COMPOSE_FILE	:= srcs/docker-compose.yml
 
 all: build up
@@ -18,7 +18,7 @@ down:
 
 build: create
 	@echo "Building/Rebuilding containers"
-	@$(DOCKER_COMPOSE) -f $(COMPOSE_FILE) build —no-cache
+	@$(DOCKER_COMPOSE) -f $(COMPOSE_FILE) build --no-cache
 
 re: fclean all
 
