@@ -1,14 +1,14 @@
-DOCKER_COMPOSE = docker-compose
-COMPOSE_FILE = srcs/docker-compose.yml
+DOCKER_COMPOSE	:= docker compose
+COMPOSE_FILE	:= srcs/docker-compose.yml
 
-all: up
+all: build up
 
 create:
 	@echo "Creating data directories"
 	@mkdir -p /home/${USER}/data/wp_pages
 	@mkdir -p /home/${USER}/data/database
 
-up: build
+up:
 	@echo "Starting all containers"
 	@$(DOCKER_COMPOSE) -f $(COMPOSE_FILE) up
 
@@ -18,7 +18,7 @@ down:
 
 build: create
 	@echo "Building/Rebuilding containers"
-	@$(DOCKER_COMPOSE) -f $(COMPOSE_FILE) build
+	@$(DOCKER_COMPOSE) -f $(COMPOSE_FILE) build —no-cache
 
 re: fclean all
 
